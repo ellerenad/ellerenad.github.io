@@ -36,8 +36,8 @@ task :publish => [:generate] do
     system "git config user.email ellerenad@hotmail.com"
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m #{message.inspect}"
-    system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
-    system "git push --set-upstream origin master"
+    system "git remote add origin https://github.com/ellerenad/ellerenad.github.io"
+    system "git push origin master --force"
 
     Dir.chdir pwd
 end
