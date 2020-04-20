@@ -20,6 +20,9 @@ main_nav: true
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </strong>
       <span class="post-date">- {{ post.date | date_to_long_string }}</span>
+      <section class="post-excerpt" itemprop="description">
+           <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+      </section>
     </li>
   {% endfor %}
   </ul>
