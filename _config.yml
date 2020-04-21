@@ -14,7 +14,7 @@ subtitle: "Welcome to my personal blog!"
 email: ellerenad gmail com
 name: Enrique Llerena Dominguez
 description: >
-  Blog - Enrique Llerena Dominguez.
+  Enrique Llerena Dominguez - with <3
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -54,11 +54,11 @@ jekyll-archives:
 
 # Category descriptions (for archive pages)
 descriptions:
-  - cat: jekyll
-    desc: "Posts describing Jekyll setup techniques."
+  - cat: "Machine-Learning"
+    desc: "Stuff I consider interesting about Machine Learning"
 
-  - cat: dummy
-    desc: "Just some placeholder posts, lorem ipsum and the rest."
+  - cat: "Everyday-Life"
+    desc: "Lessons I learn on the everyday life"
 
 # Social icons and sharing options
 #
