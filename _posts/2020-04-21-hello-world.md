@@ -5,7 +5,7 @@ date:   2020-04-21T19:25:52+01:00
 author: Enrique Llerena Dominguez
 categories: Everyday-life
 tags: hello
-cover:  "/assets/agave_landscape_2.jpg"
+cover:  "/assets/agave_landscape.jpg"
 ---
 
 This is my first post :D finally, after a couple of hours invested on learning the tools and setting them up, I can write something.
