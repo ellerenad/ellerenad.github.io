@@ -20,6 +20,8 @@ My interests are about machine learning, cloud computing, and software architect
 
 Even if I write this blog with passion, love, and dedication, trying to provide quality content, I cannot guarantee that everything here is going to be 100% correct.
 
+The views, thoughts, and opinions expressed in this blog belong solely to the author, and not necessarily to the author's employer, organization, committee or other group or individual.
+
 Copyright (c) 2020 Enrique Llerena Dominguez
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
