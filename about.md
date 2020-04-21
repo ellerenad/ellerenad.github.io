@@ -7,7 +7,7 @@ main_nav: true
 
 ![alt text]({{ site.baseurl }}/assets/profile_image.jpg "Profile Picture"){:.profile}
 
-Hello! This is Enrique Llerena Dominguez. I am a Software Engineer.
+Hello! I am Enrique Llerena Dominguez, Software Engineer.
 This is my personal blog, where I share stuff about my interests, mostly Software Engineering.
 
 I fell in love with software engineering on 2004, and made my first paid project on 2007. 
@@ -16,7 +16,31 @@ At the moment, I am a Senior Software Engineer at [mimacom GmbH][mimacom]. ([Joi
 
 My interests are about machine learning, cloud computing, and software architecture. I also like football (both american and the real one ;) ).
 
-Credits:
+#### Disclaimer
+
+Even if I write this blog with passion, love, and dedication, trying to provide quality content, I cannot guarantee that everything here is going to be 100% correct.
+
+Copyright (c) 2020 Enrique Llerena Dominguez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+#### Credits
 
 Template:
 Centrarium is a custom theme for [Jekyll][jekyll], made by [Ben Centra][bencentra] for his own blog. Installation and configuration instructions can be found in the [GitHub repository](https://github.com/bencentra/centrarium).
