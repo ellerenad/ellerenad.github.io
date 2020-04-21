@@ -9,12 +9,12 @@ exclude:
   - "/vendor/"
 
 # Site settings
-title: "Blog - Enrique Llerena Dominguez. (Work in Progress)"
-subtitle: " Please notice this is a Work in Progress"
+title: "Enrique Llerena Dominguez"
+subtitle: "Welcome to my personal blog!"
 email: ellerenad gmail com
 name: Enrique Llerena Dominguez
 description: >
-  Blog - Enrique Llerena Dominguez. (Work in Progress).
+  Blog - Enrique Llerena Dominguez.
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
