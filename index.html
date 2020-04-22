@@ -13,7 +13,9 @@ pagination:
     </header>
   </div>
 </div>
-
+{% if site.cover_credits %}
+<span class="image-credit">{{ site.cover_credits}}</span>
+{% endif %}
 <div class="wrapper">
 <ul class="post-list">
   {% for post in paginator.posts %}

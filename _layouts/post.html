@@ -11,7 +11,9 @@ layout: default
     </header>
   </div>
 </div>
-
+{% if page.cover %}
+<span class="image-credit">{{ page.cover_credits}}</span>
+{% endif %}
 <div class="wrapper">
 
 {% unless page.cover %} {% include page_divider.html %} {% endunless %}

@@ -46,6 +46,16 @@ pre code.hljs {
 	font-size: modular-scale(-1);
 }
 
+.image-credit {
+	float: right;
+	margin-right: 1rem;
+	font-size: $base-font-size * .85;
+	font-style: italic;
+	color: $gray;;
+	text-align: right;
+
+}
+
 .page-divider {
 	$divider-color: $light-gray;
   display: block;

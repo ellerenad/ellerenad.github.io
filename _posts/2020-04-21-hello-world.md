@@ -6,6 +6,7 @@ author: Enrique Llerena Dominguez
 categories: Everyday-life
 tags: hello
 cover:  "/assets/agave_landscape.jpg"
+cover_credits: Photo by Enrique Llerena Dominguez @ Tequila, Mexico
 ---
 
 This is my first post :D finally, after a couple of hours invested on learning the tools and setting them up, I can write something.
