@@ -4,5 +4,14 @@
 1. Problems with pagination were observed. Test.
 1. Rename page "posts": Find a better name
 1. Add change version notes on each post
+1. Add status to each post. e.g. draft,...
 1. Improve image rendering
 1. Add a personal 404 page
+
+
+## Ideas of posts to write
+
+1. Tensorflow2
+1. MLFlow
+1. Image processing
+1. OUD+mTLS experience
