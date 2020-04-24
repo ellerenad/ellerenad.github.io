@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "RoboArm Controller, part I: Intro and architecture"
+title:  "RoboArm Controller, part I: Intro and architecture. Status: Draft"
 date:   2020-04-24T09:25:52+01:00
 author: Enrique Llerena Dominguez
 categories: learning-machine-learning machine-learning 
