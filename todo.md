@@ -7,6 +7,8 @@
 1. Add status to each post. e.g. draft,...
 1. Improve image rendering
 1. Add a personal 404 page
+1. Adjust the size of the content column
+1. remove the strip_html from the excerpt?
 
 
 ## Ideas of posts to write
