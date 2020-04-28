@@ -51,8 +51,8 @@ It is a classification problem: We have a bunch of coordinates, representing the
 `Instruction = classify(hand)`, where `Instruction` is something like `Move the servo number 1 applying a positive change`.
 
 <figure>
-  <img src="/assets/posts/roboarmcontroller-intro/hands-position-to-instruction.png" alt="Mapping the position of a hand to a instruction"/>
-  <figcaption class="image-description">Mapping the position of a hand to a instruction: The left hand (green arrow) indicates which servo to move,
+  <img src="/assets/posts/roboarmcontroller-intro/hands-position-to-instruction.png" alt="Mapping the position of a hand to an instruction"/>
+  <figcaption class="image-description">Mapping the position of a hand to an instruction: The left hand (green arrow) indicates which servo to move,
    whereas the right hand (yellow arrow) indicates a positive or negative delta</figcaption>
 </figure>
 
