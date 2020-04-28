@@ -188,4 +188,4 @@ If you want to see more about this, check the following links:
 [roboarmcontroller_demo]: http://www.youtube.com/watch?v=JWlY6wcq-mY&t=29m10s
 [eclipsecon_roboarmcontroller_video]: http://www.youtube.com/watch?v=JWlY6wcq-mY
 [eclipsecon_roboarmcontroller_slides]: https://www.eclipsecon.org/europe2019/sessions/prototyping-robot-arm-controller-getting-hands-dirty-learn-new-technologies
-[twitter_handle]: twitter.com/ellerenad
+[twitter_handle]: https://www.twitter.com/ellerenad
