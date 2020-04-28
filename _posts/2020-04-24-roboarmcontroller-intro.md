@@ -17,7 +17,7 @@ passionate about.
 # TL;DR
 
 - The Roboarm Controller is a hobby project I developed to practice different technologies on a ludic way.
-- The following technologies were used: Java, Python, C++, Tensorflow, Deeplearning4j, Spring, JUnit, Gazebosim (plus other tools)
+- The following technologies were used: Java, Python, C++, Tensorflow, Deeplearning4j, Spring, JUnit, Gazebo (plus other tools)
 - It enables a user to control a simulated robotic arm with the position of their hands.
 - It has 3 main components: a simulated robotic arm, a data transformation application, and the hands sensor.
 - The machine learning part is on the data transformation: classify the position of the hands to get a movement instruction.
