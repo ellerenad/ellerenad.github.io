@@ -39,7 +39,7 @@ a couple of hours per week. Requirements are:
 Technologies to learn/practice:
 - A Machine Learning Framework: Tensorflow, deeplearning4j
 - Apache Kafka
-- Gazebosim
+- Gazebo
  
 The idea came connecting the dots of previous stuff I had done and seen:
 - A simulated robotic arm I made for my masters' thesis
@@ -105,11 +105,11 @@ If you want to see more diagrams related to the architecture of this project, yo
 ## Brief Description of the components
 
 This is just an overview of each of the main components used for the project. If this series get enough traction, I will
-write an post describing each one of themm
+write an post describing each one of them
 
 ### Hands Sensor
 
-This is the orifin of the data, where the position of the hands is sensed.
+This is the origin of the data, where the position of the hands is sensed.
 Used the [Leap Motion][leap_motion] sensor. It has a framework to communicate with different languages, but the way I got to talk 
 with it was through a websocket. It provides coordinates for a set of points related to the hands, e.g. the tips of the fingers,
 the center of the hand, and so on.
