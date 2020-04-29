@@ -11,10 +11,13 @@ Hello! I am Enrique Llerena Dominguez, Software Engineer.
 This is my personal blog, where I share stuff about my interests, mostly Software Engineering.
 
 I fell in love with software engineering on 2004, and made my first paid project on 2007. 
-Ever since, I have worked with different technology stacks and tools. For the last few years, I have focused on the Java ecosystem.
-At the moment, I am a Senior Software Engineer at [mimacom GmbH][mimacom]. ([Join us!][mimacomcareer]).
+Ever since, I have worked with different technology stacks and tools, for the retail-, pharma-, automotive, and financial industries.
+For the last few years I have focused on the Java ecosystem.
+At the moment I am a Senior Software Engineer at [mimacom GmbH][mimacom]. ([Join us!][mimacomcareer]).
 
 My interests are about machine learning, cloud computing, and software architecture. I also like football (both american and the real one ;) ).
+I am a native spanish speaker, and also speak english and german fluently.
+
 
 #### Disclaimer
 

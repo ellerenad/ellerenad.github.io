@@ -9,7 +9,7 @@
 1. Add a personal 404 page
 1. Adjust the size of the content column
 1. remove the strip_html from the excerpt?
-
+1. About: Add certifications and talks
 
 ## Ideas of posts to write
 
