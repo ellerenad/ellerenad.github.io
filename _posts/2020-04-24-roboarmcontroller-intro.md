@@ -74,12 +74,12 @@ I show it here because it is a goal on the project: learn a machine learning fra
 If you want to see more diagrams related to the architecture of this project, you can find them at the
  [Architecture folder of the GitHub repo][roboarmcontroller_repo_architecture]
 
-## Brief Description of the components
+## Brief description of the components
 
 This is just an overview of each of the main components used for the project. If these series get enough traction, I will
 write a post describing each one of them
 
-### Hands Sensor
+### Hands' sensor
 
 This is the origin of the data, where the position of the hands is sensed.
 Used the [Leap Motion][leap_motion] sensor. It has a framework to communicate with different languages, but the way I got to talk 
@@ -138,28 +138,27 @@ If you want to see more about this, check the following links:
 
 
 - [Github repo: ellerenad/RoboArmController][roboarmcontroller_repo]
-
 - [Demo of the project][roboarmcontroller_demo]
 
 
-## Afterword
+## Afterword: how this project started
 
 Some time ago, after having done the MOOC ["Machine Learning for Musicians and Artists"][kadenze_moc] at kadenze, I was eager to apply my knowledge,
 so I started to look for a project to get the hands dirty with. It was not an easy task, as a parent I don't have a lot of time for a side project, maybe just
 a couple of hours per week.
 
 I was looking for the following characteristics for a project:
-- Make me feel passionate about it
-- Be an end to end Machine Learning system
+- Make me feel passionate about it.
+- Be an end to end Machine Learning system.
 - Let me experiment with different technologies in a ludic way.
 
 Learning goals:
-- A Machine Learning Framework: Tensorflow, deeplearning4j
-- Apache Kafka
-- Gazebo
+- A Machine Learning Framework: Tensorflow, deeplearning4j.
+- Apache Kafka.
+- Gazebo.
  
 The idea came connecting the dots of previous stuff I had done and seen:
-- A simulated robotic arm I made for my masters' thesis
+- A simulated robotic arm I made for my masters' thesis.
 - The [Leap Motion][leap_motion] controller, that I got to know at the above-mentioned MOC from Kadenze.
 
 I have not yet integrated Apache Kafka, let's see what the future says :) 
@@ -167,15 +166,15 @@ I have not yet integrated Apache Kafka, let's see what the future says :)
 ### Evolution of the project
 
 The strategy to achieve the goals were:
-1. Do a Minimum Viable Product
-1. Do Small iterations to create small pieces with clearly testable deltas
-1. Tackle the riskiest things first
+1. Do a Minimum Viable Product.
+1. Do Small iterations to create small pieces with clearly testable deltas.
+1. Tackle the riskiest things first.
 
-The strategy was to tackle the following challenges:
+Major milestones:
 
-1. Get data from the sensor
-1. Model the simulated robotic arm, control it and communicate it with the exterior
-1. Transform sensor data into movements:  Process data and communicate both components
+1. Get data from the sensor.
+1. Model the simulated robotic arm, control it and communicate it with the exterior.
+1. Transform sensor data into movements:  Process data and communicate all the components.
 
 I made an initial prototype with partial failures where I learned some nice stuff, but I'll leave the evolution to another post.
 
