@@ -67,8 +67,8 @@ Note: I don't consider the Machine Learning module as a component, from my persp
 I show it here because it is a goal on the project: learn a machine learning framework.
 
 <figure>
-  <img src="/assets/posts/roboarmcontroller-intro/target-architecture.png" alt="Current architecture"/>
-  <figcaption class="image-description">Current architecture of the RoboArm Controller.</figcaption>
+  <img src="/assets/posts/roboarmcontroller-intro/target-architecture.png" alt="The current architecture"/>
+  <figcaption class="image-description">The current architecture of the RoboArm Controller.</figcaption>
 </figure>
 
 If you want to see more diagrams related to the architecture of this project, you can find them at the
