@@ -18,40 +18,23 @@ passionate about.
 
 # TL;DR
 
-- The RoboArm Controller is a hobby project I developed to practice different technologies in a ludic way.
-- The following technologies were used: Java, Python, C++, Tensorflow, Deeplearning4j, Spring, JUnit, Gazebo (plus other tools)
 - The RoboArm Controller enables a user to control a simulated robotic arm with the position of their hands.
+- Check out the code at the  [Github repo: ellerenad/RoboArmController][roboarmcontroller_repo] 
+- [Demo][roboarmcontroller_demo]
+- The following technologies were used: Java, Python, C++, Tensorflow, Deeplearning4j, Spring, JUnit, Gazebo, plus other tools.
 - The RoboArm Controller has 3 main components: a simulated robotic arm, a data transformation application, and the hands' sensor.
 - The machine learning part is on the data transformation: classify the position of the hands to get a movement instruction.
 - The RoboArm Controller covers the machine learning cycle: Gather the data, prepare the data, choose a model, train the model,
  tune the hyperparameters, test the model, export the model, import the model into a "production" system, and use it to make predictions.
-- [Demo][roboarmcontroller_demo]
-- [Github repo: ellerenad/RoboArmController][roboarmcontroller_repo]
 - The project was presented at the [Java Forum Stuttgart 2019][JFS_roboarmcontroller] and the EclipseCon Europe 2019 ([video][eclipsecon_roboarmcontroller_video]/[slides][eclipsecon_roboarmcontroller_slides])
+- The RoboArm Controller is a hobby project I developed to practice different technologies in a ludic way.
 
 
 ## Introduction
 
-Some time ago, after having done the MOOC ["Machine Learning for Musicians and Artists"][kadenze_moc] at kadenze, I was eager to apply my knowledge,
-so I started to look for a project to get the hands dirty with. It was not an easy task, as a parent I don't have a lot of time for a side project, maybe just
-a couple of hours per week. Requirements are:
-- Make me feel passionate about it
-- Be an end to end Machine Learning system
-- Let me experiment with different technologies in a more ludic way.
-
-Technologies to learn/practice:
-- A Machine Learning Framework: Tensorflow, deeplearning4j
-- Apache Kafka
-- Gazebo
- 
-The idea came connecting the dots of previous stuff I had done and seen:
-- A simulated robotic arm I made for my masters' thesis
-- The [Leap Motion][leap_motion] controller, that I got to know at the above-mentioned MOC from Kadenze.
-
-
-Concretely, the RoboArm Controller allows controlling a simulated robotic arm with the position of the hands of a person.
-It is a classification problem: We have a bunch of coordinates, representing the position of a hand, and we want to transform that into an instruction, so that:
-`Instruction = classify(hand)`, where `Instruction` is something like `Move the servo number 1 applying a positive change`.
+The RoboArm Controller allows controlling a simulated robotic arm with the position of the hands of a person.
+It is a classification problem: There is a bunch of coordinates, representing the position of a hand, and the goal is to transform them into an instruction, so that:
+`Instruction = map(classify(hand))`, where an example of an `Instruction` is `Move the servo number 1 applying a positive change`.
 
 <figure>
   <img src="/assets/posts/roboarmcontroller-intro/hands-position-to-instruction.png" alt="Mapping the position of a hand to an instruction"/>
@@ -59,30 +42,14 @@ It is a classification problem: We have a bunch of coordinates, representing the
    whereas the right hand (yellow arrow) indicates a positive or negative delta</figcaption>
 </figure>
 
-So, why is this a match? One reason is that it is a data stream, where the data originates on the sensor, is transformed, and eventually it "moves"
-the simulator. Another reason is the "end to end machine learning system" requirement fits well: the transformation of the data is a classification problem, 
-where the positions of the hand have a label, which itself can be mapped to an instruction. Also, it covers the machine learning cycle: 
-Gather the data, prepare the data, choose a model, train the model, tune the hyperparameters, test the model, export the model, import the model 
-into a "production" system, and use it to make predictions.
-
-Spoiler alert: Apache Kafka has not yet been implemented, let's see what the future says :) 
-
-## Evolution of the project
-
-The strategy to achieve the goals were:
-1. Do a Minimum Viable Product
-1. Do Small iterations to create small pieces with clearly testable deltas
-1. Tackle the riskiest things first
-
-I made an initial prototype, where I learned some nice stuff, but I'll leave the evolution to another post.
-
-## Roadmap
-
-Tackle the following challenges:
-
-1. Get data from the sensor
-1. Model the simulated robotic arm, control it, and communicate it with the exterior
-1. Transform sensor data into movements:  Process data and communicate both components
+This fits the learning goals (mentioned on the afterword) because:
+1. The RoboArm Controller is a data stream, where the data originates on the sensor, is transformed, and eventually it "moves"
+the simulator. 
+1. The RoboArm Controller can be controlled with a machine learning part because the transformation of the data is a classification problem, 
+where the positions of the hand have a label, which itself can be mapped to an instruction. 
+1. The RoboArm Controller enables the practice of the machine learning framework because it is an end to end machine learning system,
+ executing the following steps: Gather the data, prepare the data, choose a model, train the model, tune the hyperparameters,
+ test the model, export the model, import the model into a "production" system, and use it to make predictions. 
 
 
 ## Architecture
@@ -97,11 +64,11 @@ It has 3 main components:
 1. A simulated robotic arm.
 
 Note: I don't consider the Machine Learning module as a component, from my perspective it is more a tool used by a component or even an implementation detail.
-I show it here because it is a goal on the project: learn an ML framework.
+I show it here because it is a goal on the project: learn a machine learning framework.
 
 <figure>
-  <img src="/assets/posts/roboarmcontroller-intro/target-architecture.png" alt="Target architecture"/>
-  <figcaption class="image-description">Target architecture of the RoboArm Controller.</figcaption>
+  <img src="/assets/posts/roboarmcontroller-intro/target-architecture.png" alt="Current architecture"/>
+  <figcaption class="image-description">Current architecture of the RoboArm Controller.</figcaption>
 </figure>
 
 If you want to see more diagrams related to the architecture of this project, you can find them at the
@@ -160,7 +127,6 @@ would move the `servoId: 1` `5` positive degrees.
 - Output: Visualization of the Robot Arm. It could also return the position of the servos.
 
 
-
 ## Conclusion
 
 We saw an overview of the motivation behind the RoboArm controller project, the architecture it has, and a brief description of its components.
@@ -176,6 +142,42 @@ If you want to see more about this, check the following links:
 - [Demo of the project][roboarmcontroller_demo]
 
 
+## Afterword
+
+Some time ago, after having done the MOOC ["Machine Learning for Musicians and Artists"][kadenze_moc] at kadenze, I was eager to apply my knowledge,
+so I started to look for a project to get the hands dirty with. It was not an easy task, as a parent I don't have a lot of time for a side project, maybe just
+a couple of hours per week.
+
+I was looking for the following characteristics for a project:
+- Make me feel passionate about it
+- Be an end to end Machine Learning system
+- Let me experiment with different technologies in a ludic way.
+
+Learning goals:
+- A Machine Learning Framework: Tensorflow, deeplearning4j
+- Apache Kafka
+- Gazebo
+ 
+The idea came connecting the dots of previous stuff I had done and seen:
+- A simulated robotic arm I made for my masters' thesis
+- The [Leap Motion][leap_motion] controller, that I got to know at the above-mentioned MOC from Kadenze.
+
+I have not yet integrated Apache Kafka, let's see what the future says :) 
+
+### Evolution of the project
+
+The strategy to achieve the goals were:
+1. Do a Minimum Viable Product
+1. Do Small iterations to create small pieces with clearly testable deltas
+1. Tackle the riskiest things first
+
+The strategy was to tackle the following challenges:
+
+1. Get data from the sensor
+1. Model the simulated robotic arm, control it and communicate it with the exterior
+1. Transform sensor data into movements:  Process data and communicate both components
+
+I made an initial prototype with partial failures where I learned some nice stuff, but I'll leave the evolution to another post.
 
 
 
