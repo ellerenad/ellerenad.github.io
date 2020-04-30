@@ -27,7 +27,7 @@ Certifications:
 - telc Deutsch C1
 - TOEFL IBT (English) 
 
-Conferences
+Conferences:
 - Prototyping a Robot Arm Controller: Getting the hands dirty to learn new technologies (10/2019,
 EclipseCon Europe 2019, [video][eclipsecon_roboarmcontroller_video]/[slides][eclipsecon_roboarmcontroller_slides])
 - Prototyping a Robot Arm Controller: Getting the hands dirty to learn new technologies (7/2019, Java
