@@ -13,7 +13,7 @@ This is my blog, where I share stuff about my interests, mostly Software Enginee
 I fell in love with software engineering in 2004 and made my first paid project in 2007. 
 Ever since, I have worked with different technology stacks and tools, for the retail-, pharma-, automotive, and financial industries.
 For the last few years, I have focused on the Java ecosystem.
-At the moment I am a Senior Software Engineer at [mimacom GmbH][mimacom]. ([Join us!][mimacomcareer]).
+At the moment I am a Senior Software Engineer at [mimacom Deutschland GmbH][mimacom]. ([Join us!][mimacomcareer]).
 
 My interests are machine learning, cloud computing, and software architecture. I also like football (both american and the real one ;) ).
 I am a native spanish speaker, and also speak english and german fluently.
