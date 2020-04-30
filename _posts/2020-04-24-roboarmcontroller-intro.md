@@ -33,7 +33,11 @@ passionate about.
 ## Introduction
 
 The RoboArm Controller allows controlling a simulated robotic arm with the position of the hands of a person.
-It is a classification problem: There is a bunch of coordinates, representing the position of a hand, and the goal is to transform them into an instruction, so that:
+In this implementation, the position on the left hand of the person is used to indicate which servo to move, and the position
+ of the right hand is used to determine whether the change of the current position of the servo needs to negative or positive.
+The simulated robotic arm has 3 degrees of freedom, i.e. 3 servos.
+From a machine learning perspective, it can be seen as a classification problem: There is a bunch of coordinates, representing 
+the position of a hand, and the goal is to transform them into an instruction, so that:
 `Instruction = map(classify(hand))`, where an example of an `Instruction` is `Move the servo number 1 applying a positive change`.
 
 <figure>
@@ -85,7 +89,7 @@ This is the origin of the data, where the position of the hands is sensed.
 Used the [Leap Motion][leap_motion] sensor. It has a framework to communicate with different languages, but the way I got to talk 
 with it was through a WebSocket. It provides coordinates for a set of points related to the hands, e.g. the tips of the fingers,
 the center of the hand, and so on.
-- Technologies used: Leap Motion.
+- Technologies used: [Leap Motion][leap_motion].
 - Interfaces: Websocket.
 - Input: The hands.
 - Output: Position of different parts of the hands, sent to the data transformer application.
@@ -113,7 +117,7 @@ The execution states and the used machine learning framework are controlled thro
 - Technologies used: Java + Spring, jUnit, maven, TensorFlow, deepelearning4j.
 - Interfaces: WebSocket, TCP Socket.
 - Input: Position of different parts of the hands.
-- Output: Instructions for the robotic arm.
+- Output: Instructions for the robotic arm. e.g. ´1 -5´, meaning "move ´5´ negative degrees the servo with id ´1´"
 
 
 ### Simulated Robotic Arm
