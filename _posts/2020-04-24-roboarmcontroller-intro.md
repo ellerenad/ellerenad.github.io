@@ -14,7 +14,7 @@ cover_credits: Photo by David Fanuel on Unsplash
 This is the first post of a series where I want to describe my journey learning machine learning, a topic I am 
 passionate about.
 
-# RoboArm Controller, part I: Intro and architecture
+# RoboArm Controller, part I: Intro and Architecture
 
 # TL;DR
 
@@ -74,12 +74,12 @@ I show it here because it is a goal on the project: learn a machine learning fra
 If you want to see more diagrams related to the architecture of this project, you can find them at the
  [Architecture folder of the GitHub repo][roboarmcontroller_repo_architecture]
 
-## Brief description of the components
+## Brief Description of the Components
 
 This is just an overview of each of the main components used for the project. If these series get enough traction, I will
 write a post describing each one of them
 
-### Hands' sensor
+### Hands' Sensor
 
 This is the origin of the data, where the position of the hands is sensed.
 Used the [Leap Motion][leap_motion] sensor. It has a framework to communicate with different languages, but the way I got to talk 
@@ -90,7 +90,7 @@ the center of the hand, and so on.
 - Input: The hands.
 - Output: Position of different parts of the hands, sent to the data transformer application.
 
-### The data transformer application
+### The Data Transformer Application
 
 This is the place to find the main domain logic.
 It is a Java/Spring Boot application, where the hands' position data is transformed into movement instructions for the simulated robotic arm.
@@ -116,7 +116,7 @@ The execution states and the used machine learning framework are controlled thro
 - Output: Instructions for the robotic arm.
 
 
-### Simulated robotic arm
+### Simulated Robotic Arm
 
 It is a -rather simple- simulation of a robotic arm, done in [Gazebo][gazebo], with 3 degrees of freedom. It is controlled by a C++ plugin.
 This plugin receives instructions from the exterior on a TCP port, with the format `<servoId delta>`, so the instruction `1 5` 
@@ -141,7 +141,7 @@ If you want to see more about this, check the following links:
 - [Demo of the project][roboarmcontroller_demo]
 
 
-## Afterword: how this project started
+## Afterword: How This Project Started
 
 Some time ago, after having done the MOOC ["Machine Learning for Musicians and Artists"][kadenze_moc] at kadenze, I was eager to apply my knowledge,
 so I started to look for a project to get the hands dirty with. It was not an easy task, as a parent I don't have a lot of time for a side project, maybe just
@@ -163,11 +163,11 @@ The idea came connecting the dots of previous stuff I had done and seen:
 
 I have not yet integrated Apache Kafka, let's see what the future says :) 
 
-### Evolution of the project
+### Evolution of the Project
 
 The strategy to achieve the goals were:
 1. Do a Minimum Viable Product.
-1. Do Small iterations to create small pieces with clearly testable deltas.
+1. Do small iterations to create small pieces with clearly testable deltas.
 1. Tackle the riskiest things first.
 
 Major milestones:
