@@ -17,3 +17,4 @@
 1. MLFlow
 1. Image processing
 1. OUD+mTLS experience
+1. getting started with deeplearning4j
