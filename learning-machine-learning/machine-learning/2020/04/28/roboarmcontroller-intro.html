@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RoboArm Controller, part I: Intro and architecture.</title>
+  <meta name="description" content="Learning Machine Learning Series">
+  
+  <meta name="author" content="Enrique Llerena Dominguez">
+  <meta name="copyright" content="&copy; Enrique Llerena Dominguez 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Learning Machine Learning Series" />
+  <meta property="og:url" content="https://ellerenad.github.io/learning-machine-learning/machine-learning/2020/04/28/roboarmcontroller-intro.html">
+  <meta property="og:site_name" content="Enrique Llerena Dominguez" />
+  <meta property="og:title" content="RoboArm Controller, part I: Intro and architecture." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ellerenad.github.io/assets/posts/roboarmcontroller-intro/roboarmcontroller-cover.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RoboArm Controller, part I: Intro and architecture.">
+  <meta name="twitter:description" content="Learning Machine Learning Series">
+  <meta name="twitter:image" content="https://ellerenad.github.io/assets/posts/roboarmcontroller-intro/roboarmcontroller-cover.jpg">
+  <meta name="twitter:url" content="https://ellerenad.github.io/learning-machine-learning/machine-learning/2020/04/28/roboarmcontroller-intro.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://ellerenad.github.io/learning-machine-learning/machine-learning/2020/04/28/roboarmcontroller-intro.html">
+	<link rel="alternate" type="application/rss+xml" title="Enrique Llerena Dominguez" href="https://ellerenad.github.io/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				<li class="nav-link"><a href="/">Home</a>
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/posts/roboarmcontroller-intro/roboarmcontroller-cover.jpg);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">RoboArm Controller, part I: Intro and architecture.</h1>
+      <p class="info">by <strong>Enrique Llerena Dominguez</strong></p>
+    </header>
+  </div>
+</div>
+
+<span class="image-credit">Photo by David Fanuel on Unsplash</span>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">April 28, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/learning-machine-learning">Learning-machine-learning</a>, 
+    
+  
+    
+    <a href="/category/machine-learning">Machine-learning</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h1 id="learning-machine-learning-series">Learning Machine Learning Series</h1>
+
+<p>This is the first post of a series where I want to describe my journey learning machine learning, a topic I am 
+passionate about.</p>
+
+<h1 id="roboarm-controller-part-i-intro-and-architecture">RoboArm Controller, part I: Intro and Architecture</h1>
+
+<h1 id="tldr">TL;DR</h1>
+
+<ul>
+  <li>The RoboArm Controller enables a user to control a simulated robotic arm with the position of their hands.</li>
+  <li>Check out the code at the  <a href="https://github.com/ellerenad/RoboArmController">Github repo: ellerenad/RoboArmController</a></li>
+  <li><a href="http://www.youtube.com/watch?v=JWlY6wcq-mY&amp;t=29m10s">Demo</a></li>
+  <li>The following technologies were used: Java, Python, C++, Tensorflow, Deeplearning4j, Spring, JUnit, Gazebo, plus other tools.</li>
+  <li>The RoboArm Controller has 3 main components: a simulated robotic arm, a data transformation application, and the hands’ sensor.</li>
+  <li>The machine learning part is on the data transformation: classify the position of the hands to get a movement instruction.</li>
+  <li>The RoboArm Controller covers the machine learning cycle: Gather the data, prepare the data, choose a model, train the model,
+ tune the hyperparameters, test the model, export the model, import the model into a “production” system, and use it to make predictions.</li>
+  <li>The project was presented at the <a href="https://www.java-forum-stuttgart.de/de/Vortr%E4ge+von+14.30+-+15.15+Uhr.html#D5">Java Forum Stuttgart 2019</a> and the EclipseCon Europe 2019 (<a href="http://www.youtube.com/watch?v=JWlY6wcq-mY">video</a>/<a href="https://www.eclipsecon.org/europe2019/sessions/prototyping-robot-arm-controller-getting-hands-dirty-learn-new-technologies">slides</a>)</li>
+  <li>The RoboArm Controller is a hobby project I developed to practice different technologies in a ludic way.</li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The RoboArm Controller allows controlling a simulated robotic arm with the position of the hands of a person.
+In this implementation, the position on the left hand of the person is used to indicate which servo to move, and the position
+ of the right hand is used to determine whether the change of the current position of the servo needs to negative or positive.
+The simulated robotic arm has 3 degrees of freedom, i.e. 3 servos.
+From a machine learning perspective, it can be seen as a classification problem: There is a bunch of coordinates, representing 
+the position of a hand, and the goal is to transform them into an instruction, so that:
+<code class="highlighter-rouge">Instruction = map(classify(hand))</code>, where an example of an <code class="highlighter-rouge">Instruction</code> is <code class="highlighter-rouge">Move the servo number 1 applying a positive change</code>.</p>
+
+<figure>
+  <img src="/assets/posts/roboarmcontroller-intro/hands-position-to-instruction.png" alt="Mapping the position of a hand to an instruction" />
+  <figcaption class="image-description">Mapping the position of a hand to an instruction: The left hand (green arrow) indicates which servo to move,
+   whereas the right hand (yellow arrow) indicates a positive or negative delta</figcaption>
+</figure>
+
+<p>This fits the learning goals (mentioned on the afterword) because:</p>
+<ol>
+  <li>The RoboArm Controller is a data stream, where the data originates on the sensor, is transformed, and eventually it “moves”
+the simulator.</li>
+  <li>The RoboArm Controller can be controlled with a machine learning part because the transformation of the data is a classification problem, 
+where the positions of the hand have a label, which itself can be mapped to an instruction.</li>
+  <li>The RoboArm Controller enables the practice of the machine learning framework because it is an end to end machine learning system,
+ executing the following steps: Gather the data, prepare the data, choose a model, train the model, tune the hyperparameters,
+ test the model, export the model, import the model into a “production” system, and use it to make predictions.</li>
+</ol>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>This is a data stream: the data is originated on the hands’ sensor, then it is read by the data transformation
+application, where it is transformed from a set of positions to either a data set or to a movement instruction, and on the latter case sent
+to the robotic arm, where the instruction is interpreted and applied to the simulation.</p>
+
+<p>It has 3 main components:</p>
+<ol>
+  <li>A hands sensor.</li>
+  <li>A data transformer application.</li>
+  <li>A simulated robotic arm.</li>
+</ol>
+
+<p>Note: I don’t consider the Machine Learning module as a component, from my perspective it is more a tool used by a component or even an implementation detail.
+I show it here because it is a goal on the project: learn a machine learning framework.</p>
+
+<figure>
+  <img src="/assets/posts/roboarmcontroller-intro/target-architecture.png" alt="The current architecture" />
+  <figcaption class="image-description">The current architecture of the RoboArm Controller.</figcaption>
+</figure>
+
+<p>If you want to see more diagrams related to the architecture of this project, you can find them at the
+ <a href="https://github.com/ellerenad/RoboArmController/tree/master/src/architecture">Architecture folder of the GitHub repo</a></p>
+
+<h2 id="brief-description-of-the-components">Brief Description of the Components</h2>
+
+<p>This is just an overview of each of the main components used for the project. If these series get enough traction, I will
+write a post describing each one of them</p>
+
+<h3 id="hands-sensor">Hands’ Sensor</h3>
+
+<p>This is the origin of the data, where the position of the hands is sensed.
+Used the <a href="https://www.leapmotion.com/">Leap Motion</a> sensor. It has a framework to communicate with different languages, but the way I got to talk 
+with it was through a WebSocket. It provides coordinates for a set of points related to the hands, e.g. the tips of the fingers,
+the center of the hand, and so on.</p>
+<ul>
+  <li>Technologies used: <a href="https://www.leapmotion.com/">Leap Motion</a>.</li>
+  <li>Interfaces: Websocket.</li>
+  <li>Input: The hands.</li>
+  <li>Output: Position of different parts of the hands, sent to the data transformer application.</li>
+</ul>
+
+<h3 id="the-data-transformer-application">The Data Transformer Application</h3>
+
+<p>This is the place to find the main domain logic.
+It is a Java/Spring Boot application, where the hands’ position data is transformed into movement instructions for the simulated robotic arm.
+It has an internal onion architecture, where I applied my knowledge of domain-driven design.
+It has 2 different execution states:</p>
+<ol>
+  <li>Training mode: Generation of the data set + training of the machine learning model (when the used framework allows it, details below). 
+It takes the positions read from the hands’ sensor, process them, creates a data set, and tries to trigger the training for the machine learning 
+model.</li>
+  <li>Control mode: Transformation of the hands’ positions into movement instructions.
+It takes the positions read from the hands’ sensor, process them, and feeds this data to the machine learning framework for classification,
+then interprets this data, transforms it to an instruction, and sends it to the robotic arm via TCP sockets.</li>
+</ol>
+
+<p>Two machine learning frameworks are supported:</p>
+<ol>
+  <li>Tensorflow (v1).- This framework does not allow the training with java, hence the training needs to be done with a separate python 
+script, it is provided in the form of a Jupyter notebook.</li>
+  <li>Deeplearning4j.- This framework provides support to train a model with java, so the model is generated.</li>
+</ol>
+
+<p>The execution states and the used machine learning framework are controlled through Spring profiles.</p>
+
+<ul>
+  <li>Technologies used: Java + Spring, jUnit, maven, TensorFlow, deepelearning4j.</li>
+  <li>Interfaces: WebSocket, TCP Socket.</li>
+  <li>Input: Position of different parts of the hands.</li>
+  <li>Output: Instructions for the robotic arm. e.g. ´1 -5´, meaning “move ´5´ negative degrees the servo with id ´1´”</li>
+</ul>
+
+<h3 id="simulated-robotic-arm">Simulated Robotic Arm</h3>
+
+<p>It is a -rather simple- simulation of a robotic arm, done in <a href="http://gazebosim.org/">Gazebo</a>, with 3 degrees of freedom. It is controlled by a C++ plugin.
+This plugin receives instructions from the exterior on a TCP port, with the format <code class="highlighter-rouge">&lt;servoId delta&gt;</code>, so the instruction <code class="highlighter-rouge">1 5</code> 
+would move the <code class="highlighter-rouge">servoId: 1</code> <code class="highlighter-rouge">5</code> positive degrees.</p>
+<ul>
+  <li>Technologies used: Gazebo, C++.</li>
+  <li>Interfaces: TCP Socket.</li>
+  <li>Input: Instructions from the data transformer application.</li>
+  <li>Output: Visualization of the Robot Arm. It could also return the position of the servos.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>We saw an overview of the motivation behind the RoboArm controller project, the architecture it has, and a brief description of its components.
+If this series gets traction, I will write more posts about it, the next would be the data transformer application, as it is the 
+component I find the most interesting.
+If you find this interesting, reach me on <a href="https://www.twitter.com/ellerenad">twitter</a>!</p>
+
+<p>If you want to see more about this, check the following links:</p>
+
+<ul>
+  <li><a href="https://github.com/ellerenad/RoboArmController">Github repo: ellerenad/RoboArmController</a></li>
+  <li><a href="http://www.youtube.com/watch?v=JWlY6wcq-mY&amp;t=29m10s">Demo of the project</a></li>
+</ul>
+
+<h2 id="afterword-how-this-project-started">Afterword: How This Project Started</h2>
+
+<p>Some time ago, after having done the MOOC <a href="https://www.kadenze.com/courses/machine-learning-for-musicians-and-artists/info">“Machine Learning for Musicians and Artists”</a> at kadenze, I was eager to apply my knowledge,
+so I started to look for a project to get the hands dirty with. It was not an easy task, as a parent I don’t have a lot of time for a side project, maybe just
+a couple of hours per week.</p>
+
+<p>I was looking for the following characteristics for a project:</p>
+<ul>
+  <li>Make me feel passionate about it.</li>
+  <li>Be an end to end Machine Learning system.</li>
+  <li>Let me experiment with different technologies in a ludic way.</li>
+</ul>
+
+<p>Learning goals:</p>
+<ul>
+  <li>A Machine Learning Framework: Tensorflow, deeplearning4j.</li>
+  <li>Apache Kafka.</li>
+  <li>Gazebo.</li>
+</ul>
+
+<p>The idea came connecting the dots of previous stuff I had done and seen:</p>
+<ul>
+  <li>A simulated robotic arm I made for my masters’ thesis.</li>
+  <li>The <a href="https://www.leapmotion.com/">Leap Motion</a> controller, that I got to know at the above-mentioned MOC from Kadenze.</li>
+</ul>
+
+<p>I have not yet integrated Apache Kafka, let’s see what the future says :)</p>
+
+<h3 id="evolution-of-the-project">Evolution of the Project</h3>
+
+<p>The strategy to achieve the goals were:</p>
+<ol>
+  <li>Do a Minimum Viable Product.</li>
+  <li>Do small iterations to create small pieces with clearly testable deltas.</li>
+  <li>Tackle the riskiest things first.</li>
+</ol>
+
+<p>Major milestones:</p>
+
+<ol>
+  <li>Get data from the sensor.</li>
+  <li>Model the simulated robotic arm, control it and communicate it with the exterior.</li>
+  <li>Transform sensor data into movements:  Process data and communicate all the components.</li>
+</ol>
+
+<p>I made an initial prototype with partial failures where I learned some nice stuff, but I’ll leave the evolution to another post.</p>
+
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/deeplearning4j">deeplearning4j</a>,&nbsp; <a href="/tag/tensorflow">tensorflow</a>,&nbsp; <a href="/tag/java">java</a>,&nbsp; <a href="/tag/pyhton">pyhton</a>,&nbsp; <a href="/tag/gazebo">gazebo</a>,&nbsp; <a href="/tag/architecture">architecture</a>,&nbsp; <a href="/tag/roboarm-controller">roboarm-controller</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=RoboArm+Controller%2C+part+I%3A+Intro+and+architecture.&url=https%3A%2F%2Fellerenad.github.io%2Flearning-machine-learning%2Fmachine-learning%2F2020%2F04%2F28%2Froboarmcontroller-intro.html&via=ellerenad"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fellerenad.github.io%2Flearning-machine-learning%2Fmachine-learning%2F2020%2F04%2F28%2Froboarmcontroller-intro.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Enrique Llerena Dominguez</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				<li class="nav-link"><a href="/">Home</a>
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a>
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">ellerenad gmail com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://twitter.com/ellerenad" title="Follow me on Twitter">
+              <i class="fa fa-twitter"></i>
+              <span class="username">ellerenad</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/ellerenad" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">ellerenad</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/in/enrique-llerena-dominguez" title="Connect with me on LinkedIn">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">Enrique Llerena Dominguez</span>
+            </a>
+          </li>
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">© 2020 - Enrique Llerena Dominguez, with ❤️
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

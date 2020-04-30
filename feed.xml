@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enrique Llerena Dominguez</title>
+    <description>© 2020 - Enrique Llerena Dominguez, with ❤️
+</description>
+    <link>https://ellerenad.github.io/</link>
+    <atom:link href="https://ellerenad.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 30 Apr 2020 22:41:58 +0200</pubDate>
+    <lastBuildDate>Thu, 30 Apr 2020 22:41:58 +0200</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>RoboArm Controller, part I: Intro and architecture.</title>
+        <description>&lt;h1 id=&quot;learning-machine-learning-series&quot;&gt;Learning Machine Learning Series&lt;/h1&gt; &lt;p&gt;This is the first post of a series where I want to describe my journey learning machine learning, a topic I am passionate about.&lt;/p&gt; &lt;h1...</description>
+        <pubDate>Tue, 28 Apr 2020 10:25:52 +0200</pubDate>
+        <link>https://ellerenad.github.io/learning-machine-learning/machine-learning/2020/04/28/roboarmcontroller-intro.html</link>
+        <guid isPermaLink="true">https://ellerenad.github.io/learning-machine-learning/machine-learning/2020/04/28/roboarmcontroller-intro.html</guid>
+        
+        <category>deeplearning4j</category>
+        
+        <category>tensorflow</category>
+        
+        <category>java</category>
+        
+        <category>pyhton</category>
+        
+        <category>gazebo</category>
+        
+        <category>architecture</category>
+        
+        <category>roboarm-controller</category>
+        
+        
+        <category>learning-machine-learning</category>
+        
+        <category>machine-learning</category>
+        
+      </item>
+    
+      <item>
+        <title>Hello world!</title>
+        <description>&lt;p&gt;This is my first post :D finally, after a couple of hours invested on learning the tools and setting them up, I can write something.&lt;/p&gt; &lt;p&gt;I want to use this...</description>
+        <pubDate>Tue, 21 Apr 2020 20:25:52 +0200</pubDate>
+        <link>https://ellerenad.github.io/everyday-life/2020/04/21/hello-world.html</link>
+        <guid isPermaLink="true">https://ellerenad.github.io/everyday-life/2020/04/21/hello-world.html</guid>
+        
+        <category>hello</category>
+        
+        
+        <category>Everyday-life</category>
+        
+      </item>
+    
+  </channel>
+</rss>
