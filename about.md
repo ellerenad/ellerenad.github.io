@@ -19,11 +19,13 @@ My interests are machine learning, cloud computing, and software architecture. I
 I am a native spanish speaker, and also speak english and german fluently.
 
 Certifications:
-- iSAQB Certified Professional for Software Architecture
-- AWS Solutions Architect
+- iSAQB Certified Professional for Software Architecture - Foundation level
+- AWS Certified Solutions Architect - Associate
 - Oracle Certified Professional Java Programmer
 - Oracle certified Expert, Web component developer
 - Professional Scrum Master I
+- telc Deutsch C1
+- TOEFL IBT (English) 
 
 Conferences
 - Prototyping a Robot Arm Controller: Getting the hands dirty to learn new technologies (10/2019,
