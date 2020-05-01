@@ -18,3 +18,4 @@
 1. Image processing
 1. OUD+mTLS experience
 1. getting started with deeplearning4j
+1. (toy) building blocks classification
