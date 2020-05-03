@@ -1,5 +1,5 @@
 # Description
-This is the repository for my blog, [ellerenad.github.io](ellerenad.github.io)
+Deprecated! new repo and url: [https://ienjoysoftware.dev](https://ienjoysoftware.dev) ~~This is the repository for my blog, [ellerenad.github.io](ellerenad.github.io)~~
 
 ------------------------------------------------------------------------
 # Template information
